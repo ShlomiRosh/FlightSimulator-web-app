@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "ShowData";
+}
+
+<div id="dataCanvas">
+    <h2>ShowData</h2>
+    <ul id="showData"></ul>
+</div>
+<script>
+
+    var timePs = 100 * @Session["TIME"];
+    var show = function show() {
+     
+        $.post("@Url.Action("ShowFileData")", function (data) {
+            if (data.stop != 0) {
+                $("#showData").append("<li>" + "<p>" + "Lon:" + "&nbsp" + data.position.Lon + "#" + "&nbsp&nbsp&nbsp&nbsp" + "</p>"
+                    + "<p>" + "Lat:" + "&nbsp" + data.position.Lat + "#" + "&nbsp&nbsp&nbsp&nbsp" + "</p>"
+                    + "<p>" + "Rudder:" + "&nbsp" + data.position.Rudder + "#" + "&nbsp&nbsp&nbsp&nbsp" + "</p>"
+                    + "<p>" + "Throttle:" + "&nbsp" + data.position.Throttle + "#" + "&nbsp&nbsp&nbsp&nbsp" + "</p>" + "</li>");                
+            } else {
+                clearInterval(timer);
+                alert("Finish Reading");
+            }
+           
+
+        });
+    }
+    var timer = setInterval(show, timePs);
+    
+    
+</script>

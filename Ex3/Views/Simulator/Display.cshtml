@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Display";
+}
+
+
+<canvas id="mapCanvas"></canvas>
+<script>
+
+    var pointX = null;
+    var pointY = null;
+    var canvas = document.getElementById("mapCanvas");
+    var context = canvas.getContext("2d");
+    context.canvas.width = window.innerWidth;
+    context.canvas.height = window.innerHeight;
+    var timePs = 100 * @Session["INTERVAL"];
+    var drow = function () {
+        $.post("@Url.Action("GetDataPosition")", function (data) {
+
+            var lat = (data.Lat + 90) * (context.canvas.height / 180);
+            var lon = (data.Lon + 180) * (context.canvas.width / 360);
+            context.beginPath();
+            context.fillStyle = 'red';
+            context.arc(lon, lat, 5, 0, 2 * Math.PI, true);
+            context.lineWidth = 2;
+            context.fill();
+            context.stroke();
+            context.moveTo(lon, lat);
+            if (pointX != null && pointY != null) {
+                context.lineTo(pointX, pointY);
+            }
+            pointX = lon;
+            pointY = lat;
+            context.strokeStyle = 'black';
+            context.stroke();
+
+        });
+        if (@Session["INTERVAL"] == 0) {
+            clearInterval(timer);
+        }
+    };
+    var timer = setInterval(drow, timePs);
+
+</script>
+

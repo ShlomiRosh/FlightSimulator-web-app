@@ -1,0 +1,71 @@
+﻿body {
+    height:initial;
+    width: 100%;
+}
+
+#homeImage {
+    width: 100%;
+    height: 100%;
+    background-image: url(./Images/home1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:fixed;
+}
+
+#mapCanvas {
+    width: 100%;
+    height: 100%;
+    background-image: url(./Images/export-map-share.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    
+}
+
+#dataCanvas {
+    width: 100%;
+    height: 100%;
+    background-image: url(./Images/data.png);
+    background-repeat: repeat;
+    background-size: cover;
+    position: fixed;
+    overflow: auto;
+}
+
+p {
+    font-family: fantasy;
+    font-size: large;
+    color:WindowText;
+    display:inline;
+}
+
+li {
+    font-family: fantasy;
+    font-size: x-large;
+    color: red;
+}
+
+#li1 {
+    
+    font-family: fantasy;
+    font-size: x-large;
+    color: lawngreen;
+}
+
+h2 {
+    font-style: italic;
+    font-weight: bold;
+    background: blue;
+    border-style: solid;
+    border-color: black;
+    outline:groove;
+    outline-color:red;
+    outline-width:3px;
+    color: darkgreen;
+}
+
+
+
+
+
+
