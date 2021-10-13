@@ -4,5 +4,8 @@ A web application that receives data from a flight simulator and displays the lo
 #### It was developed using C# programming language and the MVC design pattern
 .
 **Snapshots**
-
+![](images/1.png)
+![](images/2.png)
+![](images/3.png)
+![](images/4.png)
 -----------------------------
